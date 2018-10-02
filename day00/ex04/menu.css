@@ -1,0 +1,72 @@
+body {
+	background-image: url(https://gfx-bloggar.aftonbladet-cdn.se/wp-content/blogs.dir/542/files/2018/08/wowbfa.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+header {
+	text-align: center;
+	font-size: 45px;
+	text-shadow: 10px 10px 10px black,
+				 2px 2px 2px white;
+}
+
+header span.red {
+	color: darkred
+}
+
+header span.blue {
+	color: darkblue;
+}
+
+.alliance {
+    background-color: darkblue;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+	cursor: pointer;
+}
+
+.horde {
+	background-color: darkred;
+	color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: black;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: grey;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbutton {
+    background-color: blue;
+}
