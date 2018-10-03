@@ -14,7 +14,7 @@
 					echo "The number " . $number . " is odd\n";
 			}
 			else
-				echo "'" . $number . ""' is not a number\n";
+				echo "'" . $number . "' is not a number\n";
 		}
 	}
 ?>

@@ -13,7 +13,7 @@
 		while ($i < $argc)
 		{
 			$splitword = ft_split ($argv[$i]);
-			$newstr = array_merge($newstr, $splitword)
+			$newstr = array_merge($newstr, $splitword);
 			$i++;
 		}
 		sort ($newstr);
