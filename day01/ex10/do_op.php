@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 	if ($argc != 4) {
 		echo "Incorrect Parameters", PHP_EOL;

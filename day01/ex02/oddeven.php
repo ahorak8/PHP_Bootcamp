@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 	$input = fopen("php://stdin", "r");
 	while ($input)

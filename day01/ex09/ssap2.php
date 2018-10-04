@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 	function is_alpha($str) {
 		$str = str_split(strtolower($str));
