@@ -7,7 +7,7 @@
 		$first = array_shift($array);
 		array_push($array, $first);
 		$i = 1;
-		foreach($array as $string) 
+		foreach($array as &$string) 
 		{
 			echo $string;
 			if (++$i <= count($array))
