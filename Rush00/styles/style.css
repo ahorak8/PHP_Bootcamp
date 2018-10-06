@@ -116,6 +116,42 @@ body {
 	float: left;
 }
 
+#sidebar_title {
+	background: white;
+	color: black;
+	text-align: center;
+	font-size: 22px;
+	font-family: 'Courier New', Courier, monospace;
+	padding: 5px;
+
+}
+
+#cats {
+	padding: 0px;	
+}
+
+#cats li {
+	list-style: none;
+	display: block;
+	background: skyblue;
+	border: black solid 1px;
+	text-align: center;
+	padding-top: 5px;
+}
+
+#cats a {
+	color: white;
+	padding: 8px;
+	margin: 5px;
+	text-decoration: none;
+	font-family: 'Courier New', Courier, monospace
+}
+
+#cats a:hover {
+	color: black;
+	font-weight: bold;
+}
+
 #footer {
 	width: 1000px;
 	height: 100px;
