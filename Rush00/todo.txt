@@ -1,0 +1,28 @@
+Structure of eCommerce:
+
+1) Website for all
+2) Cart and Checkout
+3) Customer Account
+4) Admin Panel
+
+MySQ Database Structure:
+	Database: One Database with 8 tables
+
+Tables Stucture:
+1) Products
+2) Categories
+3) Brands
+4) Cart
+5) Customers
+6) Orders
+7) Admins
+8) Payments
+
+_____________
+
+Basic Webite Layout:
+1) Header
+2) Navigation Bar 
+3) Content
+4) Siderbar
+5) Footer
