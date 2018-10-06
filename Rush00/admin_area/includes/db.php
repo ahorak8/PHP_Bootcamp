@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost","root","MySQLNinja101","rush00");
+$con = mysqli_connect("localhost","root","WTCpass8","rush00");
 
 
 ?>
