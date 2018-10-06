@@ -1,4 +1,7 @@
 <!DOCTYPE>
+<?php
+	include("functions/functions.php");
+?>
 <html>
 <head>
 	<title>RushedCosplay</title>
@@ -37,28 +40,19 @@
 				<!--Menu bar ends here -->
 
 		<div class="content_wrapper"> 
+			<!-- Side bar starts here -->
 			<div id="sidebar">
 				<div id="sidebar_title">Categories</div>
 				<ul id="cats">
-					<li><a href="#">Contact Lenses</a></li>
-						<ul class="subcats">
-							<li><a href="#">Colour</a></li>
-							<li><a href="#">Brand</a></li>
-							<li><a href="#">Sclera Lenses</a></li>
-						</ul>
-					<li><a href="#">Wigs</a></li>
-						<ul class="subcats">
-							<li><a href="#">Colour</a></li>
-							<li><a href="#">Length</a></li>
-							<li><a href="#">Brand</a></li>
-						</ul>
-					<li><a href="#">Outfits</a></li>
-					<li><a href="#">Accessories</a></li>
+					<?php getCats(); ?>
 				</ul>
 			</div>
+			<!-- Side bar ends here -->
 			<div id="content_area">Content area</div>
 		</div>
-		<div id="footer">Footer</div>
+		<div id="footer">
+			<h3 style="text-align: center; padding-top: 30px">&copy; 2018 by WeThinkCode</h3>
+		</div>
 	</div>
 	<!--Main Container ends here -->
 </body>
