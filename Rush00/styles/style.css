@@ -152,6 +152,15 @@ body {
 	font-weight: bold;
 }
 
+.subcats {
+	padding: 10px;
+}
+
+.subcats li {
+	display: block;
+	background: red;
+}
+
 #footer {
 	width: 1000px;
 	height: 100px;
