@@ -66,6 +66,7 @@ body {
 	padding: 0;
 	margin: 0;
 	line-height: 45px;
+	float: left;
 }
 
 #menu li {
@@ -80,6 +81,18 @@ body {
 	margin: 5px;
 	font-size: 18px;
 	font-family: 'Courier New', Courier, monospace;
+}
+
+#menu a:hover {
+	color: darkblue;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#form {
+	float: right;
+	padding-right: 8px;
+	line-height: 45px;
 }
 
 .content_wrapper {
