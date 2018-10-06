@@ -55,6 +55,7 @@ body {
 	height: 200px;
 }
 
+/* Menu bar styles start here */
 .menubar {
 	width: 1000px;
 	height: 50px;
@@ -89,12 +90,14 @@ body {
 	text-decoration: underline;
 }
 
+/* Search bar styles start here */
 #form {
 	float: right;
 	padding-right: 8px;
 	line-height: 45px;
 }
 
+/* Content styles start here */
 .content_wrapper {
 	width: 1000px;
 	margin: auto;
@@ -107,6 +110,7 @@ body {
 	background: pink;
 }
 
+/* Sidebar bar styles start here */
 #sidebar {
 	width: 200px;
 	background: black;
@@ -123,6 +127,7 @@ body {
 
 }
 
+/* Category styles start here */
 #cats {
 	padding: 0px;	
 }
@@ -149,6 +154,33 @@ body {
 	font-weight: bold;
 }
 
+/* Product styles start here */
+#products_box {
+	width: 780px;
+	text-align: center;
+	margin-left: 30px;
+	margin-bottom: 10px;
+}
+
+#single_product {
+	float: left;
+	margin-left: 30px;
+	padding: 10px;
+}
+
+#single_product img {
+	border: 2px solid black;
+}
+
+/* Shopping cart styles start here */
+#shopping_cart {
+	width: 800px;
+	height: 50px;
+	background: black;
+	color: white;
+}
+
+/* Footer styles start here */
 #footer {
 	width: 1000px;
 	height: 100px;

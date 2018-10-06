@@ -48,7 +48,23 @@
 				</ul>
 			</div>
 			<!-- Side bar ends here -->
-			<div id="content_area">Content area</div>
+			<!-- Content area ends here -->
+			<div id="content_area">
+				<div id="shopping_cart">
+					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
+					
+					Welcome Guest! 
+					<b style="color:yellow">Shopping Cart - </b> 
+					Total Items: Total Price:
+					<a href="cart.php" style="color:yellow">Go to Cart</a>
+					
+					</span>
+				</div>
+				<div id="products_box">
+					<?php getPro(); ?>
+				</div>
+			</div>
+			<!-- Content area ends here -->
 		</div>
 		<div id="footer">
 			<h3 style="text-align: center; padding-top: 30px">&copy; 2018 by WeThinkCode</h3>
