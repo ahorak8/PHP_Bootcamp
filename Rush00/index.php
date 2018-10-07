@@ -13,7 +13,7 @@
 	<div class="main_wrapper">
 		<!--Header starts here -->
 		<div class="header_wrapper">
-			<img id="logo" src="images/logo.png"/>
+			<a href="index.php"><img id="logo" src="images/logo.png"/></a>
 			<img id="banner" src="images/banner.jpg"/>
 		</div>
 		<!--Header ends here -->
@@ -21,12 +21,12 @@
 				<!--Menu bar starts here -->
 				<div class="menubar">
 					<ul id="menu">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">All Products</a></li>
-						<li><a href="#">My Account</a></li>
+						<li><a href="index.php">Home</a></li>
+						<li><a href="all_products.php">All Products</a></li>
+						<li><a href="customer/my_account.php">My Account</a></li>
 						<li><a href="#">Sign Up</a></li>
 						<li><a href="#">Contact Us</a></li>
-						<li><a href="#">Shopping Cart</a></li>
+						<li><a href="cart.php">Shopping Cart</a></li>
 					</ul>
 					<!-- Search bar starts here -->
 					<div id="form">
@@ -62,6 +62,7 @@
 				</div>
 				<div id="products_box">
 					<?php getPro(); ?>
+					<?php getCatPro(); ?>
 				</div>
 			</div>
 			<!-- Content area ends here -->
