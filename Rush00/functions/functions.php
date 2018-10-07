@@ -19,13 +19,14 @@ function getCats() {
 	}
 }
 
+//getting the product details for home page 
 function getPro () {
 	
-	global $con;
+	global $con2;
 	$get_pro = "select * from products order by RAND() LIMIT 0,6";
-	$run_pro = mysqli_query($con, $get_pro);
+	$run_pro = mysqli_query($con2, $get_pro);
 
-	while ($row_pro =mysqli_fetch_array($run_pro)) {
+	while ($row_pro = mysqli_fetch_array($run_pro)) {
 		
 		$pro_id = $row_pro['product_id'];
 		$pro_cat = $row_pro['product_cat'];

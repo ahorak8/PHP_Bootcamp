@@ -107,7 +107,7 @@ body {
 #content_area {
 	width: 800px;
 	float: right;
-	background: pink;
+	background: lightgrey;
 }
 
 /* Sidebar bar styles start here */
@@ -135,8 +135,8 @@ body {
 #cats li {
 	list-style: none;
 	display: block;
-	background: skyblue;
-	border: black solid 1px;
+	background: black;
+	border: skyblue solid 1px;
 	text-align: center;
 	padding-top: 5px;
 }
@@ -150,7 +150,7 @@ body {
 }
 
 #cats a:hover {
-	color: black;
+	color: red;
 	font-weight: bold;
 }
 
