@@ -6,7 +6,7 @@ include("includes/db.php");
 <html>
     <head>
         <title> Rushed Cosplay </title>
-    <link rel="stylesheet" href="styles/style.css" media="all" />
+    <link rel="stylesheet" href="../styles/style.css" media="all" />
     </head>
 
 <body>
@@ -14,19 +14,19 @@ include("includes/db.php");
 	<div class="main_wrapper">
 		<!--Header starts here -->
 		<div class="header_wrapper">
-			<a href="index.php"><img id="logo" src="images/logo.png"/></a>
-			<img id="banner" src="images/banner.jpg"/>
+			<a href="index.php"><img id="logo" src="../images/logo.png"/></a>
+			<img id="banner" src="../images/banner.jpg"/>
 		</div>
 		<!--Header ends here -->
 
 				<!--Menu bar starts here -->
 				<div class="menubar">
 					<ul id="menu">
-						<li><a href="index.php">Home</a></li>
-						<li><a href="all_products.php">All Products</a></li>
+						<li><a href="rush00/index.php">Home</a></li>
+						<li><a href="../all_products.php">All Products</a></li>
 						<li><a href="customer/my_account.php">My Account</a></li>
-						<li><a href="customer_registration.php">Register</a></li>
-						<li><a href="login.php">Login</a></li>
+						<li><a href="rush00/customer_registration.php">Register</a></li>
+						<li><a href="rush00/login.php">Login</a></li>
 						<li><a href="cart.php">Shopping Cart</a></li>
 					</ul>
 					<!-- Search bar starts here -->

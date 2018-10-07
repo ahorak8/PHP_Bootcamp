@@ -184,6 +184,7 @@ function cart(){
 		else {
 		$insert_pro = "insert into cart (p_id,ip_add) values ('$pro_id','$ip')";
 		$run_pro = mysqli_query($con, $insert_pro); 
+		echo "<script>alert('Successfully added to cart!')</script>";
 		echo "<script>window.open('index.php','_self')</script>";
 		}
 	}	
