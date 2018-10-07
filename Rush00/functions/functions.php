@@ -63,7 +63,7 @@ function getPro () {
 					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 					<p><b> R $pro_price </b></p>
 					<a href='details.php?pro_id=$pro_id' style='float:left';>Details</a>
-					<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</buton></a>
+					<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</button></a>
 				</div>
 			";
 		}
@@ -105,7 +105,7 @@ function getCatPro () {
 						<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 						<p><b> R $pro_price </b></p>
 						<a href='details.php?pro_id=$pro_id' style='float:left';>Details</a>
-						<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</buton></a>
+						<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</button></a>
 					</div>
 				";
 			}
@@ -147,7 +147,7 @@ function getCat2Pro () {
 						<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 						<p><b> R $pro_price </b></p>
 						<a href='details.php?pro_id=$pro_id' style='float:left';>Details</a>
-						<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</buton></a>
+						<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</button></a>
 					</div>
 				";
 			}

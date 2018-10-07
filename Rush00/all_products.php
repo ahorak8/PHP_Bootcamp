@@ -21,8 +21,7 @@
 				<!--Menu bar starts here -->
 				<div class="menubar">
 					<ul id="menu">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="index.php">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li><a href="all_products.php">All Products</a></li>
 						<li><a href="customer/my_account.php">My Account</a></li>
 						<li><a href="customer_registration.php">Login</a></li>
