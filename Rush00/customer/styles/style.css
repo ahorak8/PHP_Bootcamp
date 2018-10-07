@@ -29,10 +29,6 @@ footer, header, hgroup, menu, nav, section {
 
 /* ABOVE REMOVES DEFAULT PROPERTIES APPLIED BY BROWSER */
 
-body {
-	background: skyblue; 
-}
-
 .h2font{
 	text-decoration: none;
 	color: rgb(0, 0, 0);

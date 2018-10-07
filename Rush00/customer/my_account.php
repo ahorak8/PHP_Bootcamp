@@ -1,6 +1,8 @@
 <!DOCTYPE>
-<?php
-	include("functions/functions.php");
+<?php 
+session_start();
+include("functions/functions.php");
+
 ?>
 <html>
 <head>
@@ -25,7 +27,7 @@
 						<li><a href="../all_products.php">All Products</a></li>
 						<li><a href="my_account.php">My Account</a></li>
 						<li><a href="../customer_registration.php">Register</a></li>
-						<li><a href="../customer_login.php">Login</a></li>	
+						<li><a href="login.php">Login</a></li>	
 						<li><a href="../cart.php">Shopping Cart</a></li>
 					</ul>
 					<!-- Search bar starts here -->

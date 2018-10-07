@@ -1,43 +1,31 @@
 <?php
-
 $con = mysqli_connect("localhost","root","WTCpass8","rush00");
-
 if (mysqli_connect_errno()) {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-
 //getting the categories
-
 function getCats() {
-
 	global $con;
 	$get_cats = "select * from categories";
 	$run_cats = mysqli_query($con, $get_cats);
-
 	while ($row_cats=mysqli_fetch_array($run_cats)) {
 		
 		$cat_id = $row_cats['cat_id'];
 		$cat_title = $row_cats['cat_title'];
-
 		echo "<li><a href='index.php?cat=$cat_id'>$cat_title</a></li>";
 	}
 }
-
 function getCats2() {
-
 	global $con;
 	$get_cats2 = "select * from categories_2";
 	$run_cats2 = mysqli_query($con, $get_cats2);
-
 	while ($row_cats2=mysqli_fetch_array($run_cats2)) {
 		
 		$cat2_id = $row_cats2['cat2_id'];
 		$cat2_title = $row_cats2['cat2_title'];
-
 		echo "<li><a href='index.php?cat2=$cat2_id'>$cat2_title</a></li>";
 	}
 }
-
 //getting the product details for home page 
 function getPro () {
 	
@@ -47,7 +35,6 @@ function getPro () {
 		global $con;
 		$get_pro = "select * from products order by RAND() LIMIT 0,6";
 		$run_pro = mysqli_query($con, $get_pro);
-
 		while ($row_pro = mysqli_fetch_array($run_pro)) {
 		
 			$pro_id = $row_pro['product_id'];
@@ -56,7 +43,6 @@ function getPro () {
 			$pro_title = $row_pro['product_title'];
 			$pro_price = $row_pro['product_price'];
 			$pro_image = $row_pro['product_image'];
-
 			echo "
 				<div id='single_product'>
 					<h3>$pro_title</h3>
@@ -70,18 +56,15 @@ function getPro () {
 	}
 	}
 }
-
 //getting the product details for categories 
 function getCatPro () {
 	
 	if(isset($_GET['cat'])) {
 		
 		$cat_id = $_GET['cat'];
-
 		global $con;
 		$get_cat_pro = "select * from products where product_cat=$cat_id";
 		$run_cat_pro = mysqli_query($con, $get_cat_pro);
-
 		$count_cats = mysqli_num_rows($run_cat_pro);
 		
 		if($count_cats==0) {
@@ -98,7 +81,6 @@ function getCatPro () {
 				$pro_title = $row_cat_pro['product_title'];
 				$pro_price = $row_cat_pro['product_price'];
 				$pro_image = $row_cat_pro['product_image'];
-
 				echo "
 					<div id='single_product'>
 						<h3>$pro_title</h3>
@@ -112,18 +94,15 @@ function getCatPro () {
 		}
 	}
 }
-
 //getting the product details for categories 2
 function getCat2Pro () {
 	
 	if(isset($_GET['cat2'])) {
 		
 		$cat2_id = $_GET['cat2'];
-
 		global $con;
 		$get_cat2_pro = "select * from products where product_cat2=$cat2_id";
 		$run_cat2_pro = mysqli_query($con, $get_cat2_pro);
-
 		$count_cats2 = mysqli_num_rows($run_cat2_pro);
 		
 		if($count_cats2==0) {
@@ -140,7 +119,6 @@ function getCat2Pro () {
 				$pro_title = $row_cat2_pro['product_title'];
 				$pro_price = $row_cat2_pro['product_price'];
 				$pro_image = $row_cat2_pro['product_image'];
-
 				echo "
 					<div id='single_product'>
 						<h3>$pro_title</h3>
@@ -154,7 +132,6 @@ function getCat2Pro () {
 		}
 	}
 }
-
 //Get Ip Address
 function getIp() {
     $ip = $_SERVER['REMOTE_ADDR'];
@@ -167,10 +144,8 @@ function getIp() {
  
     return $ip;
 }
-
 //creating the shopping cart and put items in cart
 function cart(){
-
 	if(isset($_GET['add_cart'])){
 		global $con; 
 		$ip = getIp();
@@ -179,7 +154,6 @@ function cart(){
 		$run_check = mysqli_query($con, $check_pro); 
 		
 		$quant = 1;
-
 		if(mysqli_num_rows($run_check)>0){
 		echo "";
 		}
@@ -191,12 +165,8 @@ function cart(){
 		}
 	}	
 }
-
-
-
-//Total items in cart - not working
+//Total items in cart
 function total_items(){
-
     if(isset($_GET['add_cart'])){
         global $con;
         $ip = getIp();
@@ -214,8 +184,7 @@ function total_items(){
     }
 	echo $count_items;
 }
-
-//Get price total - not working 
+//Get price total 
 function total_price(){
 	
 	$total = 0;
@@ -237,7 +206,5 @@ function total_price(){
 	}		
 	echo $total . "Gp";
 	
-
 }
-
 ?>

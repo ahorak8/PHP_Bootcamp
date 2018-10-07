@@ -27,7 +27,7 @@
 						<li><a href="all_products.php">All Products</a></li>
 						<li><a href="customer/my_account.php">My Account</a></li>
 						<li><a href="customer_registration.php">Register</a></li>
-						<li><a href="customer_login.php">Login</a></li>	
+						<li><a href="login.php">Login</a></li>	
 						<li><a href="cart.php">Shopping Cart</a></li>
 					</ul>
 					<!-- Search bar starts here -->
@@ -74,7 +74,6 @@
 							$run_pro = mysqli_query($con, $get_pro);
 							
 							while ($row_pro = mysqli_fetch_array($run_pro)) {
-
 								$pro_id = $row_pro['product_id'];
 								$pro_title = $row_pro['product_title'];
 								$pro_price = $row_pro['product_price'];
