@@ -46,6 +46,10 @@
 				<ul id="cats">
 					<?php getCats(); ?>
 				</ul>
+				<div id="sidebar_title">Wig Colours</div>
+				<ul id="cats">
+					<?php getCats2(); ?>
+				</ul>
 			</div>
 			<!-- Side bar ends here -->
 			<!-- Content area ends here -->

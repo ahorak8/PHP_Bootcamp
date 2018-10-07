@@ -23,10 +23,26 @@ function getCats() {
 	}
 }
 
+function getCats2() {
+
+	global $con;
+	$get_cats2 = "select * from categories_2";
+	$run_cats2 = mysqli_query($con, $get_cats2);
+
+	while ($row_cats2=mysqli_fetch_array($run_cats2)) {
+		
+		$cat2_id = $row_cats2['cat2_id'];
+		$cat2_title = $row_cats2['cat2_title'];
+
+		echo "<li><a href='index.php?cat2=$cat2_id'>$cat2_title</a></li>";
+	}
+}
+
 //getting the product details for home page 
 function getPro () {
 	
 	if(!isset($_GET['cat'])) {
+		if(!isset($_GET['cat2'])) {
 		
 		global $con;
 		$get_pro = "select * from products order by RAND() LIMIT 0,6";
@@ -36,6 +52,7 @@ function getPro () {
 		
 			$pro_id = $row_pro['product_id'];
 			$pro_cat = $row_pro['product_cat'];
+			$pro_cat2 = $row_pro['product_cat2'];
 			$pro_title = $row_pro['product_title'];
 			$pro_price = $row_pro['product_price'];
 			$pro_image = $row_pro['product_image'];
@@ -50,6 +67,7 @@ function getPro () {
 				</div>
 			";
 		}
+	}
 	}
 }
 
@@ -76,9 +94,52 @@ function getCatPro () {
 		
 				$pro_id = $row_cat_pro['product_id'];
 				$pro_cat = $row_cat_pro['product_cat'];
+				$pro_cat2 = $row_cat2_pro['product_cat2'];
 				$pro_title = $row_cat_pro['product_title'];
 				$pro_price = $row_cat_pro['product_price'];
 				$pro_image = $row_cat_pro['product_image'];
+
+				echo "
+					<div id='single_product'>
+						<h3>$pro_title</h3>
+						<img src='admin_area/product_images/$pro_image' width='180' height='180' />
+						<p><b> R $pro_price </b></p>
+						<a href='details.php?pro_id=$pro_id' style='float:left';>Details</a>
+						<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</buton></a>
+					</div>
+				";
+			}
+		}
+	}
+}
+
+//getting the product details for categories 2
+function getCat2Pro () {
+	
+	if(isset($_GET['cat2'])) {
+		
+		$cat2_id = $_GET['cat2'];
+
+		global $con;
+		$get_cat2_pro = "select * from products where product_cat2=$cat2_id";
+		$run_cat2_pro = mysqli_query($con, $get_cat2_pro);
+
+		$count_cats2 = mysqli_num_rows($run_cat2_pro);
+		
+		if($count_cats2==0) {
+			echo "<h2 style='padding:20px;'>There are no products in this category. Sorry</h2>";
+			exit();
+		}
+		else {
+			
+			while ($row_cat2_pro = mysqli_fetch_array($run_cat2_pro)) {
+		
+				$pro_id = $row_cat2_pro['product_id'];
+				$pro_cat = $row_cat2_pro['product_cat'];
+				$pro_cat2 = $row_cat2_pro['product_cat2'];
+				$pro_title = $row_cat2_pro['product_title'];
+				$pro_price = $row_cat2_pro['product_price'];
+				$pro_image = $row_cat2_pro['product_image'];
 
 				echo "
 					<div id='single_product'>

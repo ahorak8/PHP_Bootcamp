@@ -22,6 +22,7 @@ include("includes/db.php");
 				<td align="center">Product Title:</td>
 				<td><input type="text" name="product_title" size="60" required/></td>
 			</tr>
+			<!--Main Categories are here-->
 			<tr>
 				<td align="center">Product Category:</td>
 				<td>
@@ -38,6 +39,27 @@ include("includes/db.php");
 						
 								echo "<option value='$cat_id'>$cat_title</option>";
 							}
+						?>
+					</select>
+				</td>
+			</tr>
+			<!-- Wig color (categories 2) is here -->
+			<tr>
+				<td align="center">Wig Colours:</td>
+				<td>
+					<select name="product_cat2">
+						<option>Select a color if needed</option>
+						<?php
+							$get_cats2 = "select * from categories_2";
+							$run_cats2 = mysqli_query($con, $get_cats2);
+					
+							while ($row_cats2=mysqli_fetch_array($run_cats2)) {
+							
+								$cat2_id = $row_cats2['cat2_id'];
+								$cat2_title = $row_cats2['cat2_title'];
+					
+								echo "<option value='$cat2_id'>$cat2_title</option>";
+						}
 						?>
 					</select>
 				</td>
@@ -74,6 +96,7 @@ include("includes/db.php");
 		//getting the text data from the form fields
 		$product_title = $_POST['product_title'];
 		$product_cat = $_POST['product_cat'];
+		$product_cat2 = $_POST['product_cat2'];
 		$product_price= $_POST['product_price'];
 		$product_desc = $_POST['product_desc'];
 		$product_keywords = $_POST['product_keywords'];
@@ -84,7 +107,7 @@ include("includes/db.php");
 
 		move_uploaded_file($product_image_tmp, "product_images/$product_image");
 
-		$insert_product = "insert into products (product_cat, product_title, product_price, product_desc, product_image, product_keywords) values ('$product_cat', '$product_title', '$product_price', '$product_desc', '$product_image', '$product_keywords')";
+		echo $insert_product = "insert into products (product_cat, product_cat2, product_title, product_price, product_desc, product_image, product_keywords) values ('$product_cat', '$product_cat2', $product_title', '$product_price', '$product_desc', '$product_image', '$product_keywords')";
 		$insert_pro = mysqli_query($con, $insert_product);
 		
 		if($insert_pro) {
