@@ -150,6 +150,7 @@ include("includes/db.php");
     if(isset($_POST['register'])){
 		$ip = getIp();
 		
+		//getting the text data from the form fields
         $c_name = $_POST['c_name'];
         $c_lname = $_POST['c_lname'];
         $c_email = $_POST['c_email'];
@@ -157,9 +158,11 @@ include("includes/db.php");
         $c_pass = $_POST['c_pass'];
         $c_country = $_POST['c_country'];
         $c_city = $_POST['c_city'];
-        $c_address = $_POST['c_address'];
+		$c_address = $_POST['c_address'];
+		
+		//getting the image from the form field
         $c_image = $_FILES['c_image']['name'];
-		$c_image_tmp = $_FILES['c_name']['tmp_name'];
+		$c_image_tmp = $_FILES['c_image']['tmp_name'];
 		
 		move_uploaded_file($c_image_tmp,"customer/customer_images/$c_image");
 		

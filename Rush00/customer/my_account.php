@@ -1,14 +1,13 @@
+<!DOCTYPE>
 <?php
-session_start();
-include("functions/functions.php");
-include("includes/db.php");
+	include("functions/functions.php");
 ?>
 <html>
-    <head>
-        <title> Rushed Cosplay </title>
-    <link rel="stylesheet" href="../styles/style.css" media="all" />
-    </head>
+<head>
+	<title>RushedCosplay</title>
 
+	<link rel="stylesheet" href="styles/style.css" media="all" />
+</head>
 <body>
 	<!--Main Container starts here -->
 	<div class="main_wrapper">
@@ -22,11 +21,11 @@ include("includes/db.php");
 				<!--Menu bar starts here -->
 				<div class="menubar">
 					<ul id="menu">
-						<li><a href="rush00/index.php">Home</a></li>
+						<li><a href="../index.php">Home</a></li>
 						<li><a href="../all_products.php">All Products</a></li>
-						<li><a href="customer/my_account.php">My Account</a></li>
-						<li><a href="rush00/customer_registration.php">Register</a></li>
-						<li><a href="rush00/login.php">Login</a></li>
+						<li><a href="my_account.php">My Account</a></li>
+						<li><a href="../customer_registration.php">Register</a></li>
+						<li><a href="login.php">Login</a></li>	
 						<li><a href="cart.php">Shopping Cart</a></li>
 					</ul>
 					<!-- Search bar starts here -->
@@ -43,99 +42,96 @@ include("includes/db.php");
 		<div class="content_wrapper"> 
 			<!-- Side bar starts here -->
 			<div id="sidebar">
-				<div id="sidebar_title">Categories</div>
+			<div id="sidebar_title">My Account:</div>
+				
 				<ul id="cats">
-					<?php getCats(); ?>
-				</ul>
-				<div id="sidebar_title">Wig Colours</div>
-				<ul id="cats">
-					<?php getCats2(); ?>
-				</ul>
+				<?php 
+				$user = $_SESSION['customer_email'];
+				
+				$get_img = "select * from customers where customer_email='$user'";
+				
+				$run_img = mysqli_query($con, $get_img); 
+				
+				$row_img = mysqli_fetch_array($run_img); 
+				
+				$c_image = $row_img['customer_image'];
+				
+				$c_name = $row_img['customer_name'];
+				
+				echo "<p style='text-align:center;'><img src='customer_images/$c_image' width='150' height='150'/></p>";
+				
+				?>
+				<li><a href="my_account.php?my_orders">My Orders</a></li>
+				<li><a href="my_account.php?edit_account">Edit Account</a></li>
+				<li><a href="my_account.php?change_pass">Change Password</a></li>
+				<li><a href="my_account.php?delete_account">Delete Account</a></li>
+				<li><a href="logout.php">Logout</a></li>
+				
+				<ul>
 			</div>
 			<!-- Side bar ends here -->
-
-			<!-- Content wrapper starts here -->
+			<!-- Content area starts here -->
 			<div id="content_area">
 			
 			<?php cart(); ?>
 
 				<div id="shopping_cart">
-					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
+
+				<span style="float:right; font-size:17px; padding:5px; line-height:40px;">
 					
-					Welcome Guest! 
-					<b style="color:yellow">Shopping Cart - </b> 
-					Total Items: Total Price:
-					<a href="cart.php" style="color:yellow">Go to Cart</a>
+					<?php 
+					if(isset($_SESSION['customer_email'])){
+					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] ;
 					
+					}
+					?>
+					
+					<?php 
+					if(!isset($_SESSION['customer_email'])){
+					
+					echo "<a href='checkout.php' style='color:orange;'>Login</a>";
+					
+					}
+					else {
+					echo "<a href='logout.php' style='color:orange;'>Logout</a>";
+					}
+
+					?>
+
 					</span>
 				</div>
-				<form action="customer_registration.php" method="post" enctype="multipart/form-data">
-
-  				<table class="content_area" align="centre" width="750">
-      			<tr align="center"><td colspan="6"><h2>Account Registration</h2></td></tr>
-
-     		   <tr>
-     		       <td align="right">Name:</td>
-     		       <td><input type="text" name="c_name" required /></td>
-     		   </tr>
-
-		        <tr>
-		            <td align="right">Last Name:</td>
-		            <td><input type="text" name="c_lname" required /></td>
-		        </tr>
-
-		        <tr>
-		            <td align="right">Email Address:</td>
-		            <td><input type="text" name="c_email" required /></td>
-		        </tr>
-
-		        <tr>
-		            <td align="right">Contact Number:</td>
-		            <td><input type="text" name="c_contact" required /></td>
-		        </tr>
-		        <tr>
-		            <td align="right">Password:</td>
-		            <td><input type="password" name="c_pass" required /></td>
-		        </tr>
-
-		        <tr>
-		            <td align="right">Profile Image:</td>
-		            <td><input type="file" name="c_image" /></td>
-		        </tr>
-
-		        <tr>
-		            <td align="right" required >Country:</td>
-		            <td>
-		            <select name="c_country">
-		                    <option>Select a Country</option>
-		                    <option>South Africa</option>
-		                    <option>United Kingdom</option>
-		                    <option>United States</option>
-		                    <option>China</option>
-		                    <option>Germany</option>
-		                    <option>Russia</option>
-		            </select>
-		            </td>
-		        </tr>
-
-		        <tr>
-		            <td align="right">City:</td>
-		            <td><input type="text" name="c_city" required /></td>
-		        </tr>
-
-		        <tr>
-		            <td align="right">Address:</td>
-		            <td><textarea cols="20" row="10"name="c_address" ></textarea></td>
-		        </tr>
-
-		    <tr align="center" padding-top="10px">
-		        <td colspan="6"><input type="submit" name="register" value="Create Account" /></td>
-		    </tr>
-		    </table>
-			</form>
-
-</div>
-			<!-- Content wrapper ends here -->
+				<div id="products_box">
+				<?php 
+				if(!isset($_GET['my_orders'])){
+					if(!isset($_GET['edit_account'])){
+						if(!isset($_GET['change_pass'])){
+							if(!isset($_GET['delete_account'])){
+							
+				echo "
+				<h2 style='padding:20px;'>Welcome:  $c_name </h2>
+				<b>You can see your orders progress by clicking this <a href='my_account.php?my_orders'>link</a></b>";
+				}
+				}
+				}
+				}
+				?>
+				
+				<?php 
+				if(isset($_GET['edit_account'])){
+				include("edit_account.php");
+				}
+				if(isset($_GET['change_pass'])){
+				include("change_pass.php");
+				}
+				if(isset($_GET['delete_account'])){
+				include("delete_account.php");
+				}
+				
+				
+				?>
+				</div>
+			</div>
+			<!-- Content area ends here -->
 		</div>
 		<div id="footer">
 			<h3 style="text-align: center; padding-top: 30px">&copy; 2018 by WeThinkCode</h3>
@@ -144,31 +140,3 @@ include("includes/db.php");
 	<!--Main Container ends here -->
 </body>
 </html>
-
-
-<?php
-    if(isset($_POST['register'])){
-		$ip = getIp();
-		
-        $c_name = $_POST['c_name'];
-        $c_lname = $_POST['c_lname'];
-        $c_email = $_POST['c_email'];
-        $c_contact = $_POST['c_contact'];
-        $c_pass = $_POST['c_pass'];
-        $c_country = $_POST['c_country'];
-        $c_city = $_POST['c_city'];
-        $c_address = $_POST['c_address'];
-        $c_image = $_FILES['c_image']['name'];
-		$c_image_tmp = $_FILES['c_name']['tmp_name'];
-		
-		move_uploaded_file($c_image_tmp,"customer/customer_images/$c_image");
-		
-		$insert_c = "insert into customers (customer_ip, customer_name, customer_lname, customer_email, customer_contact, customer_pass, customer_country, customer_city, customer_address, customer_image) values ('$ip', '$c_name', '$c_lname', '$c_email', '$c_contact', '$c_pass','$c_country','$c_city','$c_address','$c_image')";
-		
-        $run_c = mysqli_query($con, $insert_c);
-        
-        if($run_c){
-            echo "<script>alert('Registration Complete!')</script>";
-        }
-    }
-?>
