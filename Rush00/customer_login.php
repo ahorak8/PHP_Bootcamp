@@ -1,5 +1,6 @@
-<?php 
-include("includes/db.php");
+<!DOCTYPE>
+<?php
+	include("functions/functions.php");
 ?>
 <html>
 <head>
@@ -16,8 +17,9 @@ include("includes/db.php");
 			<img id="banner" src="images/banner.jpg"/>
 		</div>
 		<!--Header ends here -->
-		<!--Menu bar starts here -->
-		<div class="menubar">
+
+				<!--Menu bar starts here -->
+				<div class="menubar">
 					<ul id="menu">
 						<li><a href="index.php">Home</a></li>
 						<li><a href="all_products.php">All Products</a></li>
@@ -36,47 +38,87 @@ include("includes/db.php");
 					<!-- Search bar ends here -->
 				</div>
 				<!--Menu bar ends here -->
+
+		<div class="content_wrapper"> 
+			<!-- Side bar starts here -->
+			<div id="sidebar">
+				<div id="sidebar_title">Categories</div>
+				<ul id="cats">
+					<?php getCats(); ?>
+				</ul>
+				<div id="sidebar_title">Wig Colours</div>
+				<ul id="cats">
+					<?php getCats2(); ?>
+				</ul>
+			</div>
+			<!-- Side bar ends here -->
+			<!-- Content area starts here -->
+			<div id="content_area">
 			
-<div id="content_area"> 
+			<?php cart(); ?>
+
+				<div id="shopping_cart">
+					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
+					
+					Welcome Guest! 
+					<b style="color:yellow">Shopping Cart - </b> 
+					Total Items: Total Price:
+					<a href="cart.php" style="color:yellow">Go to Cart</a>
+					
+					<?php
+					if(!isset($_SESSION['customer_email'])){
+						echo "<a href='checkout.php'>Login</a>";
+					}
+					else{
+						echo "<a href='logout.php'>Logout</a>";
+					}
+					?>
+
+
+					</span>
+				</div>
 	
 	<form method="post" action=""> 
-		<table width="500" align="center"> 
+		
+		<table width="500" align="center" bgcolor="grey"> 
+			
 			<tr align="center">
-				<td colspan="3"><h2>Login or Register to Buy!</h2></td>
+				<td colspan="3"><h2>Login or Register for Love!</h2></td>
 			</tr>
+			
 			<tr>
 				<td align="right"><b>Email:</b></td>
 				<td><input type="text" name="email" placeholder="enter email" required/></td>
 			</tr>
+			
 			<tr>
 				<td align="right"><b>Password:</b></td>
 				<td><input type="password" name="password" placeholder="enter password" required/></td>
 			</tr>
+			
 			<tr align="center">
 				<td colspan="3"><a href="checkout.php?forgot_password">Forgot Password?</a></td>
 			</tr>
+			
 			<tr align="center">
 				<td colspan="3"><input type="submit" name="Login" value="Login" /></td>
 			</tr>
-		</table> 
-			<h2 style="float:right; margin-right:40px;"><a href="customer_registration.php" style="text-decoration:none;">New? Register Here</a></h2>
 
-	</form>
-	</div>
-	<div id="footer">
-		<h3 style="text-align: center; padding-top: 30px">&copy; 2018 by WeThinkCode</h3>
-	</div>
-	</div>
-	<!--Main Container ends here -->
-</body>
-</html>
-	<?php 
-	if(isset($_POST['login'])){
+		</table> 
 	
-		$customer_email = $_POST['customer_email'];
-		$customer_pass = $_POST['customer_pass'];
+			<h2 style="float:right; padding-right:20px;"><a href="customer_registration.php" style="text-decoration:none;">New? Register Here</a></h2>
+	
+	
+	</form>
+	
+	
+	<?php 
+	if(isset($_POST['Login'])){
 		
-		$sel_c = "SELECT * FROM customers WHERE customer_pass='$customer_pass' AND customer_email='$customer_email'";
+		$c_email = $_POST['email'];
+		$c_pass = $_POST['password'];
+		
+		$sel_c = "select * from customers where customer_pass='$c_pass' AND customer_email='$c_email'";
 		
 		$run_c = mysqli_query($con, $sel_c);
 		
@@ -84,12 +126,12 @@ include("includes/db.php");
 		
 		if($check_customer==0){
 		
-		echo "<script>alert('Password or email is incorrect, please try again!')</script>";
+		echo "<script>alert('FUCK!!')</script>";
 		exit();
 		}
 		$ip = getIp(); 
 		
-		$sel_cart = "SELECT * FROM cart WHERE ip_add='$ip'";
+		$sel_cart = "select * from cart where ip_add='$ip'";
 		
 		$run_cart = mysqli_query($con, $sel_cart); 
 		
@@ -108,10 +150,7 @@ include("includes/db.php");
 		
 		echo "<script>alert('You logged in successfully, Thanks!')</script>";
 		echo "<script>window.open('checkout.php','_self')</script>";
-		
-		
 		}
 	}
-	
-?>
-	
+	?>
+</div>

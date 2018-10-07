@@ -63,6 +63,15 @@
 					Welcome Guest! 
 					<b style="color:yellow">Shopping Cart:</b>
 					<a href="cart.php" style="color:yellow">Go to Cart</a>
+
+					<?php
+					if(!isset($_SESSION['customer_email'])){
+						echo "<a href='checkout.php'>Login</a>";
+					}
+					else{
+						echo "<a href='logout.php'>Logout</a>";
+					}
+					?>
 					
 					</span>
 				</div>

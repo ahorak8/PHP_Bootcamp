@@ -4,7 +4,7 @@
 ?>
 <html>
 <head>
-	<title>RushedCosplay</title>
+	<title>Rushed Cosplay</title>
 
 	<link rel="stylesheet" href="styles/style.css" media="all" />
 </head>
@@ -63,7 +63,7 @@
 				?>
 				<li><a href="my_account.php?my_orders">My Orders</a></li>
 				<li><a href="my_account.php?edit_account">Edit Account</a></li>
-				<li><a href="my_account.php?change_pass">Change Password</a></li>
+				<li><a href="my_account.php?change_password">Change Password</a></li>
 				<li><a href="my_account.php?delete_account">Delete Account</a></li>
 				<li><a href="logout.php">Logout</a></li>
 				
@@ -104,7 +104,7 @@
 				<?php 
 				if(!isset($_GET['my_orders'])){
 					if(!isset($_GET['edit_account'])){
-						if(!isset($_GET['change_pass'])){
+						if(!isset($_GET['change_password'])){
 							if(!isset($_GET['delete_account'])){
 							
 				echo "
@@ -120,8 +120,8 @@
 				if(isset($_GET['edit_account'])){
 				include("edit_account.php");
 				}
-				if(isset($_GET['change_pass'])){
-				include("change_pass.php");
+				if(isset($_GET['change_password'])){
+				include("change_password.php");
 				}
 				if(isset($_GET['delete_account'])){
 				include("delete_account.php");
