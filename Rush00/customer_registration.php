@@ -50,7 +50,7 @@ include("index.php")
             <td>
             <select name="c_country">
                     <option>----------------</option>
-                    <option>South-Africa</option>
+                    <option>South Africa</option>
                     <option>United Kingdom</option>
                     <option>United States</option>
                     <option>China</option>
