@@ -194,7 +194,7 @@ function cart(){
 
 
 
-//Total items in cart
+//Total items in cart - not working
 function total_items(){
 
     if(isset($_GET['add_cart'])){
@@ -215,7 +215,7 @@ function total_items(){
 	echo $count_items;
 }
 
-//Get price total 
+//Get price total - not working 
 function total_price(){
 	
 	$total = 0;
