@@ -2,6 +2,10 @@
 
 $con = mysqli_connect("localhost","root","WTCpass8","rush00");
 
+if (mysqli_connect_errno()) {
+	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
 //getting the categories
 
 function getCats() {
@@ -63,7 +67,7 @@ function getCatPro () {
 		$count_cats = mysqli_num_rows($run_cat_pro);
 		
 		if($count_cats==0) {
-			echo "<h2>There are no products in this category</h2>";
+			echo "<h2 style='padding:20px;'>There are no products in this category. Sorry</h2>";
 			exit();
 		}
 		else {
