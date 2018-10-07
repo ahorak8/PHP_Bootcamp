@@ -1,10 +1,11 @@
 <!DOCTYPE>
 <?php
 	include("functions/functions.php");
+	$sql = "SET GLOBAL sql_mode=\'\'";
 ?>
 <html>
 <head>
-	<title>RushedCosplay</title>
+	<title>Rushed Cosplay</title>
 
 	<link rel="stylesheet" href="styles/style.css" media="all" />
 </head>
@@ -61,8 +62,7 @@
 					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
 					
 					Welcome Guest! 
-					<b style="color:yellow">Shopping Cart - </b> 
-					Total Items: Total Price:
+					<b style="color:yellow">Shopping Cart:</b>
 					<a href="cart.php" style="color:yellow">Go to Cart</a>
 					
 					</span>

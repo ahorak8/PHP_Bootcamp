@@ -1,6 +1,7 @@
 <!DOCTYPE>
 <?php
 	include("functions/functions.php");
+	$sql = "SET GLOBAL sql_mode=\'\'";
 ?>
 <html>
 <head>
@@ -59,8 +60,7 @@
 					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
 					
 					Welcome Guest! 
-					<b style="color:yellow">Shopping Cart - </b> 
-					Total Items: Total Price:
+					<b style="color:yellow">Shopping Cart:</b>
 					<a href="cart.php" style="color:yellow">Go to Cart</a>
 					
 					</span>
@@ -84,7 +84,7 @@
 									<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 									<p><b> R $pro_price </b></p>
 									<a href='details.php?pro_id=$pro_id' style='float:left';>Details</a>
-									<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</buton></a>
+									<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</buton></a>
 								</div>
 							";
 						}

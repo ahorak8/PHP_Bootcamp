@@ -2,6 +2,7 @@
 session_start();
 include("functions/functions.php");
 include("includes/db.php");
+$sql = "SET GLOBAL sql_mode=\'\'";
 ?>
 <html>
     <head>
@@ -63,8 +64,7 @@ include("includes/db.php");
 					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
 					
 					Welcome Guest! 
-					<b style="color:yellow">Shopping Cart - </b> 
-					Total Items: Total Price:
+					<b style="color:yellow">Shopping Cart:</b>
 					<a href="cart.php" style="color:yellow">Go to Cart</a>
 					
 					</span>
