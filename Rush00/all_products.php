@@ -21,12 +21,12 @@
 				<!--Menu bar starts here -->
 				<div class="menubar">
 					<ul id="menu">
-						<li><a href="index.php">Home</a></li>
+					<li><a href="index.php">Home</a></li>
 						<li><a href="all_products.php">All Products</a></li>
-						<li><a href="customer/my_account.php">My Account</a></li>
-						<li><a href="#">Sign Up</a></li>
-						<li><a href="#">Contact Us</a></li>
-						<li><a href="cart.php">Shopping Cart</a></li>
+						<li><a href="user/my_account.php">My Account</a></li>
+						<li><a href="user/customer_registration.php">Login</a></li>
+						<li><a href="contact/contact_us.php">Contact Us</a></li>
+						<li><a href="cart/cart.php">Shopping Cart</a></li>
 					</ul>
 					<!-- Search bar starts here -->
 					<div id="form">
@@ -54,6 +54,7 @@
 			<!-- Side bar ends here -->
 			<!-- Content area ends here -->
 			<div id="content_area">
+				<?php cart(); ?>
 				<div id="shopping_cart">
 					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
 					

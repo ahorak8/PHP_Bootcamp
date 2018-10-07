@@ -63,7 +63,7 @@ function getPro () {
 					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 					<p><b> R $pro_price </b></p>
 					<a href='details.php?pro_id=$pro_id' style='float:left';>Details</a>
-					<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</buton></a>
+					<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</buton></a>
 				</div>
 			";
 		}
@@ -105,7 +105,7 @@ function getCatPro () {
 						<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 						<p><b> R $pro_price </b></p>
 						<a href='details.php?pro_id=$pro_id' style='float:left';>Details</a>
-						<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</buton></a>
+						<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</buton></a>
 					</div>
 				";
 			}
@@ -147,7 +147,7 @@ function getCat2Pro () {
 						<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 						<p><b> R $pro_price </b></p>
 						<a href='details.php?pro_id=$pro_id' style='float:left';>Details</a>
-						<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</buton></a>
+						<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</buton></a>
 					</div>
 				";
 			}
@@ -168,22 +168,22 @@ function getIp() {
     return $ip;
 }
 
-//create cart
+//create cart and put items in cart
 function cart() {
 	if (isset($_GET['add_cart'])) {
 		global $con;
-		$ip = getip();
-		$pro_id = $_GET['add_car'];
+		$ip = getIp();
+		$pro_id = $_GET['add_cart'];
 		
 		$check_pro = "select * from cart where ip_add='$ip' AND p_id='$pro_id'";
 		$run_check = mysqli_query($con, $check_pro);
+		//Only lets one of each product be inserted into cart?
 		if(mysqli_num_rows($run_check)>0){
-		
 			echo "";
 		}
 		else {
 		
-			$insert_pro = "insert into cart (p_id, ip_add) values ('$p_id','$ip')";
+			$insert_pro = "insert into cart (p_id, ip_add) values ('$pro_id','$ip')";
 		
 			$run_pro = mysqli_query($con, $insert_pro);
 			echo "<script>window.open('index.php','_self')</script>";
