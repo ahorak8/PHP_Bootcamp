@@ -37,6 +37,7 @@ body {
 	width: 1000px;
 	height: auto;
 	margin: auto;
+	background: black;
 }
 
 .header_wrapper {
@@ -48,6 +49,7 @@ body {
 #logo {
 	float: left;
 	height: 200px;
+	background: grey;
 }
 
 #banner {
@@ -138,7 +140,7 @@ body {
 	background: black;
 	border: skyblue solid 1px;
 	text-align: center;
-	padding-top: 5px;
+	padding-top: 10px;
 }
 
 #cats a {

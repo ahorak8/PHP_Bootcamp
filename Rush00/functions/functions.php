@@ -22,9 +22,9 @@ function getCats() {
 //getting the product details for home page 
 function getPro () {
 	
-	global $con2;
+	global $con;
 	$get_pro = "select * from products order by RAND() LIMIT 0,6";
-	$run_pro = mysqli_query($con2, $get_pro);
+	$run_pro = mysqli_query($con, $get_pro);
 
 	while ($row_pro = mysqli_fetch_array($run_pro)) {
 		
