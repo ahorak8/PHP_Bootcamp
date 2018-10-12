@@ -1,0 +1,66 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible">
+	<title>Blow</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		div.balloon {
+			height: 200px; 
+			width: 200px; 
+			background: red;
+			border-radius: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="balloon" id="balloon" onclick="Grow()" onmouseout="Shrink()">
+
+	</div>
+</body>
+	<script>
+		var balloon = document.getElementById('balloon');
+		balloon.style.backgroundColor = "red";
+
+		function Grow ()
+		{
+			var width = balloon.offsetWidth + 10;
+			var height = balloon.offsetHeight + 10;
+			balloon.style.width = width;
+			balloon.style.height = height;
+
+			if (width > 420 || height > 420)
+			{
+				balloon.style.width = 200;
+				balloon.style.height = 200;
+			}
+			if (balloon.style.backgroundColor == "red")
+				balloon.style.backgroundColor = "green";
+			else if (balloon.style.backgroundColor == "green")
+				balloon.style.backgroundColor = "blue";
+			else if (balloon.style.backgroundColor == "blue")
+				balloon.style.backgroundColor = "red";
+		}
+
+		function Shrink ()
+		{
+			var width = balloon.offsetWidth - 5;
+			var height = balloon.offsetHeight - 5;
+			balloon.style.width = width;
+			balloon.style.height = height;
+
+			if (width < 200 || height < 200)
+			{
+				balloon.style.width = 200;
+				balloon.style.height = 200;
+			}
+			if (balloon.style.backgroundColor == "red")
+				balloon.style.backgroundColor = "blue";
+			else if (balloon.style.backgroundColor == "green")
+				balloon.style.backgroundColor = "red";
+			else if (balloon.style.backgroundColor == "blue")
+				balloon.style.backgroundColor = "green";
+		}
+	
+	</script>
+</html>
