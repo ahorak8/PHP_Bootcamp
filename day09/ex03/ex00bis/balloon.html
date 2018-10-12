@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Blow</title>
+		<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+		<style>
+			div.balloon {
+				height: 200px; 
+				width: 200px; 
+				background: red;
+				border-radius: 100%;
+			}
+			</style>
+	</head>
+	<body>
+		<div class="balloon" id="balloon">
+		</div>
+	</body>
+	<script>
+		var balloon;
+		var size = 200;
+		$(balloon).css("background-color", "red");
+
+		 $(document).ready(function(){
+			balloon = $("#balloon");
+            balloon.click(grow);
+            balloon.mouseleave(shrink);
+		})
+		
+		function grow () {
+			size += 10;
+			balloon.css('height', size);
+            balloon.css('width', size);
+			if (size > 420) {
+				size = 200;
+			}
+			if (balloon.css("background-color") == "rgb(255, 0, 0)")
+				balloon.css("background-color", "green");
+			else if (balloon.css("background-color") == "rgb(0, 128, 0)")
+				balloon.css("background-color", "blue");
+			else if (balloon.css("background-color") == "rgb(0, 0, 255)")
+				balloon.css("background-color", "red");
+			
+		}
+
+		function shrink () {
+			size -= 5;
+			balloon.css('height', size);
+            balloon.css('width', size);
+            if (size < 200) {
+                size = 200;
+            }
+			if (balloon.css("background-color") == "rgb(255, 0, 0)")
+				balloon.css("background-color", "blue");
+			else if (balloon.css("background-color") == "rgb(0, 128, 0)")
+				balloon.css("background-color", "red");
+			else if (balloon.css("background-color") == "rgb(0, 0, 255)")
+				balloon.css("background-color", "green");
+		}
+	</script>
+</html>
