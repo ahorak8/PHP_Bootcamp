@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color:darkblue;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 5px 0 20px 0;
+			color: white;
+        }
+
+        .calc {
+            width: 274px;
+            background-color: black;
+            margin: 10% auto;
+            padding: 75px 50px 50px 50px;
+            position: relative;
+        }
+
+        input, select {
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input[type='text'] {
+            width: 274px;
+            height: 30px;
+        }
+
+        select, input[type='submit'] {
+            width: 274px;
+            height: 44px;
+        }
+
+        select {
+            text-indent: 125px;
+        }
+    </style>
+    <script>
+        var calc;
+        var left;
+        var right;
+        var op;
+
+        window.onload = function () {
+            calc = document.querySelector("#calc");
+            left = document.querySelector("#left");
+            right = document.querySelector("#right");
+            op = document.querySelector("#op");
+            calc.addEventListener("submit", submit);
+            setInterval("alert('Please, use me...')", 30000)
+        }
+
+        function numIsValid(l, r) {
+            return l == parseInt(l, 10) && l >= 0 && r == parseInt(r, 10) && r >= 0;
+        }
+
+        function submit(event) {
+            event.preventDefault();
+            var l = Number(left.value);
+            var r = Number(right.value);
+            if (!numIsValid(left.value, right.value)) {
+                alert("Error :(");
+                return false;
+            }
+            switch (op.value) {
+                case ('add'):
+                    result(l + r);
+                    break;
+                case ('mul'):
+                    result(l * r);
+                    break;
+                case ('div'):
+                    if (r === 0) {
+                        result("It’s over 9000!");
+                    } else {
+                        result(l / r);
+                    }
+                    break;
+                case ('mod'):
+                    if (r === 0) {
+                        result("It’s over 9000!");
+                    } else {
+                        result(l / r);
+                    }
+                    break;
+                case ('min'):
+                    result(l - r);
+                    break;
+                default:
+                    result("operation not found");
+                    break;
+            }
+        }
+
+        function result(res) {
+            console.log(res);
+            alert(res);
+        }
+    </script>
+</head>
+<body>
+    <div class="page">
+        <div class="calc">
+            <h1>Calculator</h1>
+            <form action="" id="calc">
+                <input type="text" id="left">
+                <select id="op">
+                    <option value="add">+</option>
+                    <option value="min">-</option>
+                    <option value="mul">*</option>
+                    <option value="div">/</option>
+                    <option value="mod">%</option>
+                </select>
+                <input type="text" id="right">
+                <input type="submit" id="submit" value="Try me!">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
